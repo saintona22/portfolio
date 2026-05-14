@@ -1,0 +1,293 @@
+<!-- Upper Text -->
+<h1 class="site-title">Take a look around</h1>
+
+<style>
+.site-title {
+font-family: Arial, sans-serif;
+font-size: 36px;
+font-weight: bold;
+color: #000000;
+margin-bottom: 30px;
+}
+</style>
+
+<!-- Instagram Button -->
+<a href="https://instagram.com/saintona2037" class="button instagram-btn">
+Instagram
+</a>
+
+<style>
+.button {
+display: inline-block;
+width: 280px;
+padding: 18px 12px;
+margin-bottom: 40px;
+background-color: #b3b3b3;
+color: white;
+font-family: Arial, sans-serif;
+font-size: 38px;
+font-weight: bold;
+text-decoration: none;
+}
+
+.button:hover {
+opacity: 0.85;
+}
+</style>
+
+<!-- Enquiries Button -->
+<a href="mailto:saintona7@gmail.com" class="button enquiries-btn">
+Enquiries
+</a>
+
+<style>
+.button {
+display: inline-block;
+width: 280px;
+padding: 18px 12px;
+margin-bottom: 40px;
+background-color: #b3b3b3;
+color: white;
+font-family: Arial, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-decoration: none;
+}
+
+.button:hover {
+opacity: 0.85;
+}
+</style>
+
+<!-- Subtext -->
+<p class="subtext">
+Saint Ona, a name carrying multiple creative outlets,
+such as graphic design, fashion design, music
+production, photography, curation and creative direction. 
+  Click the audio below for a preview of my new song.
+</p>
+
+<style>
+.subtext {
+font-family: Arial, sans-serif;
+font-size: 18px;
+font-weight: bold;
+color: black;
+line-height: 1.2;
+max-width: 700px;
+}
+</style>
+
+<!-- Music Player -->
+<div class="music-player">
+
+  <!-- Play Button -->
+  <button id="playButton">▶</button>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- Timer -->
+  <span id="timer">0:00</span>
+
+  <!-- Audio File -->
+  <audio id="audio">
+    <source src="steve jobs of this shiiit.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+
+<style>
+  .music-player {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 40px;
+  }
+
+  #playButton {
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: #7d7d7d;
+  }
+
+  .progress-container {
+    width: 280px;
+    height: 6px;
+    background: #c9c9c9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #progressBar {
+    height: 100%;
+    width: 0%;
+    background: #8a8a8a;
+  }
+
+  #timer {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #7d7d7d;
+    min-width: 45px;
+  }
+</style>
+
+<script>
+  const audio = document.getElementById("audio");
+  const playButton = document.getElementById("playButton");
+  const timer = document.getElementById("timer");
+  const progressBar = document.getElementById("progressBar");
+
+  let isPlaying = false;
+
+  // Play / Pause
+  playButton.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      playButton.innerHTML = "❚❚";
+      isPlaying = true;
+    } else {
+      audio.pause();
+      playButton.innerHTML = "▶";
+      isPlaying = false;
+    }
+  });
+
+  // Update Timer + Progress
+  audio.addEventListener("timeupdate", () => {
+
+    // Timer
+    const minutes = Math.floor(audio.currentTime / 60);
+    const seconds = Math.floor(audio.currentTime % 60)
+      .toString()
+      .padStart(2, "0");
+
+    timer.textContent = `${minutes}:${seconds}`;
+
+    // Progress Bar
+    const progress =
+      (audio.currentTime / audio.duration) * 100;
+
+    progressBar.style.width = `${progress}%`;
+  });
+
+  // Reset When Song Ends
+  audio.addEventListener("ended", () => {
+    playButton.innerHTML = "▶";
+    isPlaying = false;
+    progressBar.style.width = "0%";
+  });
+</script>
+
+
+
+<!-- Scrolling Image Loop -->
+<section class="image-loop">
+
+  <div class="image-track">
+
+    <!-- Original 4 Images -->
+    <img src="20260501-2200.jpg" alt="">
+    <img src="20260501-2202.jpg" alt="">
+    <img src="20260504-1651.jpg" alt="">
+    <img src="20260504-1655 2.jpg" alt="">
+
+    <!-- Duplicate Images For Seamless Loop -->
+    <img src="20260501-2200.jpg" alt="">
+    <img src="20260501-2202.jpg" alt="">
+    <img src="20260504-1651.jpg" alt="">
+    <img src="20260504-1655 2.jpg" alt="">
+
+  </div>
+
+</section>
+
+<style>
+  .image-loop {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+  }
+
+  .image-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLoop 15s linear infinite;
+  }
+
+  .image-track img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  @keyframes scrollLoop {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+<!-- Scrolling Image Loop -->
+<section class="image-loop">
+
+  <div class="image-track">
+
+    <!-- Original 4 Images -->
+    <img src="eu.jpg" alt="">
+    <img src="attack.jpg" alt="">
+    <img src="porn.jpg" alt="">
+    <img src="quote.jpg" alt="">
+
+    <!-- Duplicate Images For Seamless Loop -->
+    <img src="eu" alt="">
+    <img src="attack.jpg" alt="">
+    <img src="porn.jpg" alt="">
+    <img src="quote.jpg" alt="">
+
+  </div>
+
+</section>
+
+<style>
+  .image-loop {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+  }
+
+  .image-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLoop 30s linear infinite;
+  }
+
+  .image-track img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  @keyframes scrollLoop {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
